@@ -1,0 +1,19 @@
+// Give the pseudocode of an iterative algorithm to find all the
+// longest palindromic subsequences of a given DNA sequence.
+// Assume that a function palindrome(s), to determine if a DNA
+// sequence s is a palindrome, is known.
+
+function longest_palindromic_subsequence(s)
+    let L be an empty set (of strings)
+    l = 0
+    for i = 1 to |s| - 1 do
+        for j = i + 1 to |s| do
+            if j - i + 1 >= l  and palindrome(s[i:j]) then
+                if j - i + 1 = l then
+                    L = L ∪ {s[i:j]}
+                else
+                    L = {s[i:j]}
+                    l = j - i + 1
+        end
+    end
+    return L
